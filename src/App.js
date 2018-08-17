@@ -47,7 +47,7 @@ class BooksApp extends React.Component {
       <Route exact path="/" render={()=>(
         <div className="list-books">
           <div className="list-books-title">
-            <img src={mainLogo} />
+            <img width="135px;" src={mainLogo} />
           </div>
           <ListBookContent updateBook={this.updateBook} books={this.state.books} />
           <div className="open-search">
