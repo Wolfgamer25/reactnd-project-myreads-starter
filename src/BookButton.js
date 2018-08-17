@@ -4,13 +4,14 @@ class BookButton extends Component{
   state = {
     select: this.props.selectedShelf
   }
-  // componentDidMount(){
-  //   if(this.props.selectedShelf === undefined){
-  //     this.setState(() => ({
-  //       select: 'none'
-  //     }))
-  //   }
-  // }
+  componentDidMount(){
+  //if the book isn't assigned to a shelf it sets it to none
+    if(this.props.selectedShelf === undefined){
+      this.setState(() => ({
+        select: 'none'
+      }))
+    }
+  }
   onChange = (select) => {
     this.setState(() => ({
       select: select
@@ -20,7 +21,6 @@ class BookButton extends Component{
   render(){
     return(
       <div className="book-shelf-changer">
-      {console.log(this.props.selectedShelf)}
         <select value={this.state.select} onChange={(event) => this.onChange(event.target.value)} >
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>

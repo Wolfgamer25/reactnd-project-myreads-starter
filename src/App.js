@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom'
 import _ from 'lodash'
 import Search from './Search'
 import ListBookContent from './List-book-content'
+import mainLogo from'./image/Logo.png';
 
 class BooksApp extends React.Component {
   state = {
@@ -17,24 +18,20 @@ class BooksApp extends React.Component {
   getBooks = () => {
     BooksAPI.getAll()
     .then((books) => {
-      console.log(books)
       this.setState(() => ({
         books
       }))
     })
   }
   updateBook = (book, shelf) => {
-    console.log(book, shelf)
     BooksAPI.update(book, shelf)
     .then((books) =>{
-      console.log(books)
       this.getBooks()
     })
   }
   searchBook = (search) => {
     BooksAPI.search(search)
     .then((books) =>{
-      console.log(books)
       this.setState(() =>({
         search: books
       }))
@@ -50,7 +47,7 @@ class BooksApp extends React.Component {
       <Route exact path="/" render={()=>(
         <div className="list-books">
           <div className="list-books-title">
-            <h1>MyReads</h1>
+            <img src={mainLogo} />
           </div>
           <ListBookContent updateBook={this.updateBook} books={this.state.books} />
           <div className="open-search">
