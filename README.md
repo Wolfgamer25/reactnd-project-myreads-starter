@@ -9,8 +9,11 @@ we currently only search these current key words 'Android', 'Art', 'Artificial I
 ## Install
 
 -install Nodejs to your computer 
+
 -git clone my repository
+
 -npm install inside the file
+
 -npm start
 
 
